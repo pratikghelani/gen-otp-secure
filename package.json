@@ -1,0 +1,42 @@
+{
+  "name": "gen-otp-secure",
+  "version": "1.0.2",
+  "description": "The gen-otp-secure package is a straightforward OTP (One-Time Password) generator that allows you to create secure, random OTPs with customizable lengths and character sets, including digits, uppercase and lowercase letters, and special characters, all tailored to your specific security needs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "OTP",
+    "one-time password",
+    "token",
+    "generator",
+    "secure OTP",
+    "random OTP",
+    "authentication",
+    "two-factor authentication",
+    "TFA",
+    "2FA",
+    "password",
+    "security",
+    "login",
+    "auth",
+    "token generator",
+    "random token",
+    "secure token",
+    "OTP generator",
+    "OTP verification",
+    "secure login",
+    "password protection",
+    "secure authentication",
+    "authenticator",
+    "random password",
+    "security token"
+  ],
+  "author": "Pratikkumar Ghelani",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pratikghelani/gen-otp-secure.git"
+  }
+}
