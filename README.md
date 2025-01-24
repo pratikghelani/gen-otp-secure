@@ -1,6 +1,6 @@
-# OTP Generator with User Management
+# OTP Generator 
 
-This project provides a flexible One-Time Password (OTP) generator and an advanced user management system. Users can create accounts, manage friends, and generate secure OTPs with customizable settings to meet various security requirements.
+This project provides a flexible One-Time Password (OTP)generate secure OTPs with customizable settings to meet various security requirements.
 
 ## Features
 
