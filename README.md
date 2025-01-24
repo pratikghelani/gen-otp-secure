@@ -1,12 +1,12 @@
-# OTP Generator 
-
-This project provides a flexible One-Time Password (OTP)generate secure OTPs with customizable settings to meet various security requirements.
+# OTP Generator (gen-otp-secure)
 
 ## Features
 
-- **OTP Generation**: Secure and customizable OTP generation with configurable length and character sets (digits, lowercase letters, uppercase letters, and special characters).
-- **User Authentication**: Generate OTPs specifically for individual users for authentication or other purposes.
-- **Customizable OTP Settings**: Easily adjust the type and length of characters used for OTPs, giving you full control over the security of your system.
+- OTP Generation
+- User Authentication
+- Customizable OTP Settings
+- Configurable Length
+- Configurable Character Sets (Digits, Lowercase Letters, Uppercase Letters, Special Characters)
 
 
 ## Installation
