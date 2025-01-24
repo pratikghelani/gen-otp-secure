@@ -1,57 +1,58 @@
-# OTP Generator (gen-otp-secure)
+/**
+ * Generate OTP based on user options.
+ */
 
-## Features
+const digits = '0123456789';
+const lowerCaseAlphabets = 'abcdefghijklmnopqrstuvwxyz';
+const upperCaseAlphabets = lowerCaseAlphabets.toUpperCase();
+const specialChars = '#!&@';
 
-- OTP Generation
-- User Authentication
-- Customizable OTP Settings
-- Configurable Length
-- Configurable Character Sets (Digits, Lowercase Letters, Uppercase Letters, Special Characters)
+/**
+ * Generate an OTP of the specified length with given options.
+ * @param  {number} length - The length of the OTP (default: 6).
+ * @param  {object} options - Options to customize the OTP:
+ *   - {boolean} digits - Include digits (default: true).
+ *   - {boolean} lowerCaseAlphabets - Include lowercase letters (default: true).
+ *   - {boolean} upperCaseAlphabets - Include uppercase letters (default: true).
+ *   - {boolean} specialChars - Include special characters (default: false).
+ * @returns {string} The generated OTP.
+ */
+function generateOTP(length = 6, options = {}) {
+    // Validation for the length (should be a number and greater than 0)
+    if (typeof length !== 'number' || length <= 0) {
+        throw new Error('OTP length must be a positive number.');
+    }
 
+    // Default options if not provided
+    const generateOptions = {
+        digits: options.digits !== undefined ? options.digits : true,
+        lowerCaseAlphabets: options.lowerCaseAlphabets !== undefined ? options.lowerCaseAlphabets : true,
+        upperCaseAlphabets: options.upperCaseAlphabets !== undefined ? options.upperCaseAlphabets : true,
+        specialChars: options.specialChars !== undefined ? options.specialChars : false,
+    };
 
-## Installation
-   ```bash
-   npm install gen-otp-secure
-``````
-## Usage
-## Default
-```bash
-const otp = generateOTP();
-console.log('Generated OTP:', otp); // output : Generated OTP: abX3j9k
-``````
-## Custom OTP Generator (Length Base)
+    // Determine the characters allowed based on the options
+    let allowedChars = '';
+    if (generateOptions.digits) allowedChars += digits;
+    if (generateOptions.lowerCaseAlphabets) allowedChars += lowerCaseAlphabets;
+    if (generateOptions.upperCaseAlphabets) allowedChars += upperCaseAlphabets;
+    if (generateOptions.specialChars) allowedChars += specialChars;
 
-```bash
-const otp = generateOTP(8);
-console.log('Generated OTP:', otp); // output : Generated OTP: A4z#J2L9K5
-``````
+    // If no characters are allowed, throw an error
+    if (allowedChars === '') {
+        throw new Error('At least one character type (digits, letters, or special chars) must be enabled.');
+    }
 
-## Custom OTP Generator (Length Base, Digits Base, Case Alphabets Wise, specialChars Wise)
-```bash
-const otp = generateOTP(10, {
-    digits: true,
-    lowerCaseAlphabets: true,
-    upperCaseAlphabets: true,
-    specialChars: true
-});
-console.log('Generated OTP:', otp); // output : Generated OTP: A4z#J2L9K5
-``````
-## Manage ERROR
+    let otp = '';
+    while (otp.length < length) {
+        const charIndex = Math.floor(Math.random() * allowedChars.length);
+        otp += allowedChars[charIndex];
+    }
 
-```bash
-try {
-    const otp = generateOTP(6, { digits: false, lowerCaseAlphabets: false });
-    console.log('Generated OTP:', otp);
-} catch (error) {
-    console.error('Error:', error.message);
+    return otp;
 }
-// Error: At least one character type (digits, letters, or special chars) must be enabled.
-``````
 
-
-## 🔗 Connect with Pratikkumar Ghelani
-Expert in Node.js, React, Next.js, Express.js, MongoDB, MySQL, AWS, AI & ML, Android & iOS | SaaS | Delivering Scalable, High-Performance Applications | Custom Software Solutions Specialist
-
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pratikghelani86/) 
-
-
+// Exporting the function as an NPM package
+module.exports = {
+    generateOTP,
+};
